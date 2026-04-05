@@ -1,0 +1,23 @@
+flowchart LR
+  subgraph sg_slack["Slack workspace"]
+    User["User"]
+  end
+  subgraph sg_app["Bot backend"]
+    API["Slack Events API"]
+    RAG["RAG pipeline"]
+  end
+  subgraph sg_data["Data plane"]
+    Vec["Vector store"]
+    Src["IPA and syllabus corpus"]
+  end
+  subgraph sg_model["Model options"]
+    OptA["Vendor API"]
+    OptB["Azure OpenAI"]
+    OptC["Self-hosted"]
+  end
+  User --> API --> RAG
+  RAG --> Vec
+  RAG --> Src
+  RAG --> OptA
+  RAG --> OptB
+  RAG --> OptC

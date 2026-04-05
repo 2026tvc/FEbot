@@ -1,0 +1,12 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+data/chroma/
+data/ipa_raw/
+.DS_Store
+.cursor/
