@@ -1,0 +1,19 @@
+[Unit]
+Description=FEbot Slack Bot (Socket Mode)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/private-dev/FEbot
+EnvironmentFile=/home/ubuntu/private-dev/FEbot/.env
+ExecStart=/home/ubuntu/private-dev/FEbot/.venv/bin/python -m febot
+Restart=on-failure
+RestartSec=10s
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=febot
+
+[Install]
+WantedBy=multi-user.target

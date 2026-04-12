@@ -240,6 +240,9 @@ class RagEngine:
             temperature=0.2,
         )
         text = (chat.choices[0].message.content or "").strip()
+        # LLM explicitly said the corpus has no relevant info → fall through to web search
+        if "参照抜粋にありません" in text:
+            return None
         return RagAnswer(text=text, sources=source_names)
 
     def add_to_corpus(self, content: str, source_name: str) -> None:
