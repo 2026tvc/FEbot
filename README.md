@@ -106,6 +106,15 @@
    python3 -m febot
    ```
 
+## CI（Formatter）を通す手順
+
+CI では `ruff format --check src/` と `ruff check src/` を実行しているため、PR 前に次を実行する。
+
+```bash
+python3 -m ruff format src/
+python3 -m ruff check src/
+```
+
 ## 実行時の挙動（要約）
 
 - **チャンネル**: ボットに **メンション**して質問。キーワード「過去問」「出題」「練習問題」で `sample-questions.md` から問題を出題し、**スレッド**で「ア」「イ」「ウ」「エ」に返信すると正誤と解説。
