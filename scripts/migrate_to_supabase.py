@@ -105,14 +105,14 @@ def main() -> None:
         total_chunks += len(chunks)
         print(f"  [OK] Saved {len(chunks)} chunks for {path.name}")
 
-    print(f"\n[SUCCESS] Migration complete!")
+    print("\n[SUCCESS] Migration complete!")
     print(f"  Total documents: {len(md_files)}")
     print(f"  Total chunks: {total_chunks}")
 
     # Verify the migration
     doc_count = storage.count_documents()
     chunk_count = storage.count_chunks()
-    print(f"\nSupabase verification:")
+    print("\nSupabase verification:")
     print(f"  Documents in DB: {doc_count}")
     print(f"  Chunks in DB: {chunk_count}")
 
