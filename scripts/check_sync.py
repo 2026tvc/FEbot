@@ -85,9 +85,7 @@ def main() -> int:
             print(f"  - {key}")
 
     if has_error:
-        print(
-            "\n[sync-check] Failed. Keep code, README.md, and .env.example in sync."
-        )
+        print("\n[sync-check] Failed. Keep code, README.md, and .env.example in sync.")
         return 1
 
     print("[sync-check] OK: code, README.md, and .env.example are synchronized.")
