@@ -54,7 +54,9 @@ class Settings:
         supabase_key = os.environ.get("SUPABASE_KEY", "").strip()
         use_supabase = bool(supabase_url and supabase_key)
 
-        content_filter_enabled = os.environ.get("CONTENT_FILTER_ENABLED", "true").strip().lower() in ("true", "1", "yes")
+        content_filter_enabled = os.environ.get(
+            "CONTENT_FILTER_ENABLED", "true"
+        ).strip().lower() in ("true", "1", "yes")
 
         return Settings(
             slack_token=slack_token,

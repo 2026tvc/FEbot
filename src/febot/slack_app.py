@@ -273,8 +273,12 @@ def create_app(settings: Settings) -> tuple[App, BotState]:
         if content_filter is not None:
             filter_result = content_filter.validate(text)
             if not filter_result.is_valid:
-                say("申し訳ございませんが、その質問は基本情報技術者試験やIT・プログラミングに関連していないため、回答できません。")
-                log.info(f"Question filtered out (DM): {text[:100]}... Reason: {filter_result.reason}")
+                say(
+                    "申し訳ございませんが、その質問は基本情報技術者試験やIT・プログラミングに関連していないため、回答できません。"
+                )
+                log.info(
+                    f"Question filtered out (DM): {text[:100]}... Reason: {filter_result.reason}"
+                )
                 return
 
         _handle_rag_question(rag, settings, text, user, say)
