@@ -205,7 +205,7 @@ def create_app(settings: Settings) -> tuple[App, BotState]:
             filter_result = content_filter.validate(text)
             if not filter_result.is_valid:
                 say(
-                    "申し訳ございません。\nその質問は基本情報技術者試験やIT・プログラミングに関連していないため、回答できません。",
+                    "申し訳ございません。\nその質問は基本情報技術者試験やIT・プログラミングに関連していないと判断されました。\n※ もし関連がある場合は、文脈を明確にしてください。",
                     thread_ts=event.get("thread_ts", event["ts"]),
                 )
                 log.info(f"Question filtered out: {text[:100]}... Reason: {filter_result.reason}")
