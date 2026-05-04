@@ -75,7 +75,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/ubuntu/private-dev/FEbot
-            git pull origin main
+            git fetch origin
+            git switch main
+            git reset --hard origin/main
             .venv/bin/pip install -e . --quiet
             sudo systemctl restart febot
             sudo systemctl is-active febot
